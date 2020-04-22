@@ -17,3 +17,6 @@ $container['view'] = function ($container) {
 $container['HomeController'] = function($container) {
     return new \App\Controllers\HomeController($container);
 };
+$container['UserController'] = function($container) {
+    return new \App\Controllers\UserController($container);
+};

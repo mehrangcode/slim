@@ -17,6 +17,7 @@ $config = [
     ]
 ];
 $app = new \Slim\App($config);
+$container = $app->getContainer();
 
 $capsule = new \Illuminate\Database\Capsule\Manager;
 $capsule->addConnection($container['settings']['db']);
@@ -26,7 +27,6 @@ $container['db'] = function($container) use ($capsule) {
     return $capsule;
 };
 
-$container = $app->getContainer();
 
 require __DIR__ . "/controller.php";
 require __DIR__ . "/../app/routes/api/v1/api.php";
