@@ -11,12 +11,26 @@ class UserController extends Controller
         User::create([
             'name'=> 'Mehran Ganjgahi',
             'email'=> 'Mehran@mail.com',
-            'username'=> 'Moorche',
             'password'=> 'Moorche64',
             'avatar'=> 'avatar',
         ]);
 
         return $this->view->render($response, "home.twig");
+    }
+
+    public function registerForm ($request, $response) {
+        return $this->view->render($response, "auth/register.twig");
+    }
+
+    public function register ($request, $response) {
+
+        User::create([
+            'name'=> $request->getParam('name'), 
+            'email'=>  $request->getParam('email'), 
+            'password'=>  password_hash($request->getParam('password'), PASSWORD_DEFAULT),
+        ]);
+
+        return $response->withRedirect($this->router->pathFor('homePage'));
     }
 
 
