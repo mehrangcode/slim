@@ -1,5 +1,5 @@
-path = require("path");
-
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 module.exports = {
     mode: "development",
     entry: {
@@ -28,20 +28,16 @@ module.exports = {
                     "css-loader"
                 ]
             },
-            // {
-            //     test: /\.html$/,
-            //     use: [
-            //         {
-            //             loader: 'file-loader',
-            //             options: {
-            //                 name: "[name].html"
-            //             }
-            //         },
-            //         "extract-loader",
-            //         "html-loader"
-            //     ]
-            // }
+            {
+                test: /\.html$/,
+                use: ["html-loader"]
+            }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./FrontEnd/index.html"
+        })
+    ]
 
 }
