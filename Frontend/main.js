@@ -1,3 +1,8 @@
 require('./styles/main.css')
-require('./index.html')
+// require('./sindex.html')
 // alert("Hello")
+var a = (number) => {
+   return number + 2
+}
+
+console.log("Number : ", a(13))

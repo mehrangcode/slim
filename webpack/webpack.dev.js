@@ -17,25 +17,30 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css/,
+                test: /\.js$/,
+                use: ["babel-loader"],
+                exclude: /node-modules/
+            },
+            {
+                test: /\.css$/,
                 use: [
-                    "style-loader", 
+                    "style-loader",
                     "css-loader"
                 ]
             },
-            {
-                test: /\.html/,
-                use:[
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: "[name].html"
-                        }
-                    },
-                    "extract-loader",
-                    "html-loader"
-                ]
-            }
+            // {
+            //     test: /\.html$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: "[name].html"
+            //             }
+            //         },
+            //         "extract-loader",
+            //         "html-loader"
+            //     ]
+            // }
         ]
     }
 
