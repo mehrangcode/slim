@@ -3,7 +3,7 @@ path = require("path");
 module.exports = {
     mode: "development",
     entry: {
-        main: "./Frontend/index.js"
+        main: "./Frontend/main.js"
     },
     output: {
         filename: "[name]-bundle.js",
@@ -21,6 +21,19 @@ module.exports = {
                 use: [
                     "style-loader", 
                     "css-loader"
+                ]
+            },
+            {
+                test: /\.html/,
+                use:[
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: "[name].html"
+                        }
+                    },
+                    "extract-loader",
+                    "html-loader"
                 ]
             }
         ]
