@@ -1,4 +1,4 @@
-require('./styles/main.css')
+// require('./styles/main.css')
 require("./app/index.js")
 // require('./sindex.html')
 // alert("Hello")
