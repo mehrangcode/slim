@@ -12,23 +12,21 @@ AxiosInstance.interceptors.request.use(
       const token = window.localStorage.getItem('Nili');
       console.log("axios")
       if (token) {
-        console.log("token")
         config.headers['Authorization'] = token;
       }
       return config;
   },
   error => {
-      return error
+      return Promise.reject(error);
   });
 
 AxiosInstance.interceptors.response.use(
     (response) => response,
   (error) => {
     if (error.response.status === 401) {
-      console.log("STATUS CODE 401");
       logOut()
     }
-    return error;
+    return Promise.reject(error);;
   }
 )
 

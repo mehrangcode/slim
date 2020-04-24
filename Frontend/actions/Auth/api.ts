@@ -1,5 +1,6 @@
  import { urlGeneral, urlVersion } from "../../Utils/General/GConst"
-import axios from 'axios'
+import axios from '../../AxiosConfig'
+// import axios from 'axios'
 import { LoginType } from "./model"
 const authUrl = urlGeneral + urlVersion 
 
